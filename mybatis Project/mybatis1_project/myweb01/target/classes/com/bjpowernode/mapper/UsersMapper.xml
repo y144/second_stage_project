@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bjpowernode.mapper.UsersMapper">
+    <sql id="allColumns">
+      id,username,birthday,sex,address
+    </sql>
+
+    <!--查询全部职员信息-->
+    <select id="findAll" resultType="com.bjpowernode.pojo.Users">
+      select <include refid="allColumns"></include> from users
+    </select>
+
+    <!--按职员ID进行查询-->
+    <select id="findById" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        where id=#{id}
+    </select>
+
+    <!--按姓名模糊查询-->
+    <select id="findLikeUsers" parameterType="string" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        where username like '%${value}%'
+    </select>
+
+    <!--按指定的列名进行查询-->
+    <select id="findFiled" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        where ${columnName} like '%${columnValue}%'
+    </select>
+
+    <!--添加新用户--><!--/*返回主键信息*/-->
+    <insert id="insertUsers" parameterType="users">
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into users(username, birthday, sex, address) values (#{userName},#{birthday},#{sex},#{address})
+    </insert>
+    <!--前面的username是表中接收的字段名，后面的userName是将接收到的参数封装在对象中的成员变量名-->
+    <!--普通更新-->
+    <update id="updateUsers" parameterType="users">
+        update users set username=#{userName},birthday=#{birthday},sex=#{sex},address=#{address} where id=#{id}
+    </update>
+
+    <!--有条件更新-->
+    <update id="updateCondition" parameterType="users">
+        update users
+        <set>
+            <if test="userName != null">
+                username=#{userName}
+            </if>
+            <if test="birthday != null">
+                birthday=#{birthday}
+            </if>
+            <if test="sex != null">
+                sex=#{sex}
+            </if>
+            <if test="address != null">
+                address=#{address}
+            </if>
+            where id=#{id}
+        </set>
+    </update>
+
+    <!--多条件查询-->
+    <select id="findUsersCondition" parameterType="users" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        <where>
+            <if test="userName != null">
+                and username like '%${userName}%'
+            </if>
+            <if test="birthday != null">
+                and birthday=#{birthday}
+            </if>
+            <if test="sex != null">
+               and sex=#{sex}
+            </if>
+            <if test="address != null">
+                and address like '%${address}%'
+            </if>
+        </where>
+    </select>
+
+    <!--遍历参数集合-->
+    <select id="findBySomeId" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!--批量增加-->
+    <insert id="insertBatch">
+        insert into users(username, birthday, sex, address) values
+        <foreach collection="list" item="user" separator=",">
+            (#{user.userName},#{user.birthday},#{user.sex},#{user.address})
+        </foreach>
+    </insert>
+
+    <!--批量删除-->
+    <delete id="deleteBatch">
+        delete from users where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <!--指定参数位置进行查找,可以不使用对象的属性名进行参数的绑定，而是使用下标-->
+    <select id="appointParameterLoc" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        where username like '%${arg0}%' or sex=#{arg1}
+    </select>
+
+    <!--添加用户入参是Map,map中的key就是与#{中的值}，value就是传入的参数-->
+    <insert id="parameterIsMap" parameterType="map" >
+        insert into users(id,username,address) values (#{id},#{userName},#{address})
+    </insert>
+
+    <!--&lt;!&ndash;添加用户入参是Map &ndash;&gt;
+    <insert id="parameter" parameterType="map">
+        insert into users(id,username,address) values(#{id},#{userName},#{addresss})
+    </insert>-->
+
+    <!--返回一个Map,封装一个对象,将属性与值以键值对的形式存放在map中-->
+    <select id="resultMap" resultType="map" parameterType="int">
+        select <include refid="allColumns"></include>
+        from users
+        where id=#{id}
+    </select>
+
+
+
+    <!--查询返回多个map 一个map就是一个对象-->
+    <select id="resultMapMany" resultType="map">
+        select <include refid="allColumns"></include>
+        from users
+    </select>
+
+</mapper>

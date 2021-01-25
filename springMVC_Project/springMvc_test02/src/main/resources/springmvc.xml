@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--控制器的对象交给spring来管理，所有要进行控制器的扫描-->
+    <context:component-scan base-package="com.bjpowernode.controller"></context:component-scan>
+    <!--进行视图解析器的注册-->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/admin/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--以后在这里还可以注册类型转换器、拦截器、jeson的注解驱动-->
+</beans>

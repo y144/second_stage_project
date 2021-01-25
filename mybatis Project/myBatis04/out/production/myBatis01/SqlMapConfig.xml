@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--导入数据库的连接配置文件，在dataSource配置中读取值-->
+    <properties resource="db.properties"></properties>
+    <!--
+        这里是进行数据库连接的环境设置
+        environments:可以配置多个环境变量（也就是数据源）
+        default:在多个环境变量中设定当前使用的环境变量
+    -->
+    <environments default="development">
+        <!--
+            environment:用来进行具体的环境变量的设置
+            id:为当前的设置起个名称，可以在environments标签中调用此名称
+        -->
+        <environment id="development">
+            <!--
+                transactionManger:来进行MyBatis框架的事务处理设定
+                type:设置由谁管理事务
+                    JDBC:由框架来决定事务的提交和回滚，手动提交和回滚
+                    MANAGED:由容器统一管理事务的提交和回滚，在mybatis框架被spring整合后，事务的处理由spring容器管理
+            -->
+            <transactionManager type="JDBC"/>
+            <!--
+                dataSource：配置数据源
+                type:决定用不用数据库连接池对象
+                    POOLED:表示使用连接池
+                    UNPOOLED:表示不适用连接池
+                    JNDI:表示是服务器管理的连接池
+            -->
+            <dataSource type="POOLED">
+
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--注册所有实现数据库操作的mapper文件-->
+    <mappers>
+        <mapper resource="StudentDaoImpl.xml"/>
+    </mappers>
+</configuration>

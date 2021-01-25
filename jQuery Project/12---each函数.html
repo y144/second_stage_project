@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js" ></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				/*$("#btn3").click(function(){
+					//遍历json对象
+					var arr={name:"zhangsan",age:20};
+					//$.each(arr,function(i.n){alert("key是"+i,"value是"+n)})
+					$.each(arr, function(i,n) {
+						alert("key是："+i+"value是："+n.value)
+					});
+				})
+				//遍历dom对象数组
+				$("#btn1").click(function(){
+					$.each($(":text"), function(i,n) {
+						alert("下标是："+i+",Dom的value是："+n.value)
+					});
+				})
+				//遍历普通数组
+				$("#btn2").click(function(){
+					var ass =["g","f","l","o"];
+					$.each(ass, function(i,n) {
+						alert("数组的下边是："+i+"该下标的成员是："+n)
+					});
+				})
+			})
+			$("#btn1").click(function(){
+				var doms = $(":text");
+				$.each(doms, function(i,n) {
+					alert("下标是："+i+"元素是："+n.value)
+				});*/
+				$("#btn1").click(function(){
+					var hhr= $("input")
+					$.each(hhr, function(i,element) {
+						alert("第一个dom对象的下标:"+i+"  "+"第一个dom对象"+element.value)
+					});
+				})
+				
+				$("#btn2").click(function(){
+					var ssk = [23,52,45,12]
+					$.each(ssk, function(i,ele) {
+						alert("下标是："+i+"  "+"元素是："+ele)
+					});
+				})
+				$("#btn3").click(function(){
+					var hhr = {"name":"zhangsan","age":23}
+					$.each(hhr, function(i,gte) {
+						alert("下标是："+i+"  "+"元素是："+gte)
+					});
+				})
+				
+			})
+			
+		</script>
+		
+
+	</head>
+	<body>
+		<br>
+		<input type="text" value="刘备"/>
+		<input type="text" value="关羽"/>
+		<input type="text" value="张飞"/><br><br>
+		
+		
+		<input type="button" id="btn1" value="遍历dom对象数组"><br />
+		<input type="button" id="btn2" value="遍历普通数组"><br />
+		<input type="button" id="btn3" value="遍历json对象"><br />
+		
+	</body>
+</html>

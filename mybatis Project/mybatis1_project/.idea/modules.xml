@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/calculatormaxmin/calculatormaxmin.iml" filepath="$PROJECT_DIR$/calculatormaxmin/calculatormaxmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cjlibdymamic/cjlibdymamic.iml" filepath="$PROJECT_DIR$/cjlibdymamic/cjlibdymamic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jdkdymamic/jdkdymamic.iml" filepath="$PROJECT_DIR$/jdkdymamic/jdkdymamic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_005/mybatis_005.iml" filepath="$PROJECT_DIR$/mybatis_005/mybatis_005.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis_buffer/mybatis_buffer.iml" filepath="$PROJECT_DIR$/mybatis_buffer/mybatis_buffer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myweb01/myweb01.iml" filepath="$PROJECT_DIR$/myweb01/myweb01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proxytest/proxytest.iml" filepath="$PROJECT_DIR$/proxytest/proxytest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_0001/spring_0001.iml" filepath="$PROJECT_DIR$/spring_0001/spring_0001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_test/spring_test.iml" filepath="$PROJECT_DIR$/spring_test/spring_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_test01/spring_test01.iml" filepath="$PROJECT_DIR$/spring_test01/spring_test01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_test02/spring_test02.iml" filepath="$PROJECT_DIR$/spring_test02/spring_test02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_test03/spring_test03.iml" filepath="$PROJECT_DIR$/spring_test03/spring_test03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_testyilaizhuru01/spring_testyilaizhuru01.iml" filepath="$PROJECT_DIR$/spring_testyilaizhuru01/spring_testyilaizhuru01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/static_proxy/static_proxy.iml" filepath="$PROJECT_DIR$/static_proxy/static_proxy.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:contex="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--注意：在这里不要导入applicationContext_dao.xml文件
+        因为万我们在web.xml文件中注册spring框架时会使用通配符进行配置设置
+        如果这里导入了，web.xml文件中又使用通配符设置，那么就会导致文件多次重复加载
+    -->
+
+    <!--添加组件扫描器，目的是将所有的@service的注解将相应的业务逻辑类发送到bean工厂-->
+    <contex:component-scan base-package="com.bjpowernode.service"></contex:component-scan>
+
+    <!--配置声明式事务-->
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--配置事务的切面-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes><!--这些称之为连接点-->
+            <!--查询-->
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="select*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="search*" read-only="true"/>
+            <!--增加-->
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED"/>
+            <tx:method name="insert*" propagation="REQUIRED"/>
+            <!--删除-->
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="clean*" propagation="REQUIRED"/>
+            <!--更新-->
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="modify*" propagation="REQUIRED"/>
+            <tx:method name="set*" propagation="REQUIRED"/>
+            <tx:method name="change*" propagation="REQUIRED"/>
+            <!--表示除了这些命名开头的方法以外，其他的方法表示都支持事务-->
+            <tx:method name="*" propagation="SUPPORTS"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--配置 切面和切入点表达式 二者进行绑定  搞定事务 -->
+    <aop:config><!--这里就是配置切入点-->
+        <aop:pointcut id="pointcut" expression="execution(* com.bjpowernode.service.*.*(..))"></aop:pointcut><!--配置 切面和切入点表达式 二者进行绑定  搞定事务 -->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"></aop:advisor>
+    </aop:config>
+</beans>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--创建业务对象  实现业务功能的实现类-->
+    <bean id="bookServiceTarget" class="com.bjpowernode.service.impl.BookServiceImpl"></bean>
+
+    <!--创建切面对象  日志功能-->
+    <bean id="LogAdvice" class="com.bjpowernode.advice.LogAdvice"></bean>
+
+    <!--绑定业务和切面-->
+    <bean id="bookService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!--配置业务接口-->
+        <property name="interfaces" value="com.bjpowernode.service.BookService"></property>
+        <!--配置切面 申明切入点与配置之间的关系-->
+        <property name="interceptorNames">
+            <list>
+                <value>LogAdvice</value>
+            </list>
+        </property>
+        
+        <!--织入 就是把增强应用到目标对象，来创建新的代理对象的过程(原有的service没有办法实现 例如事务处理的交叉业务逻辑的功能，利用动态代理的方式创建了一个新的对象返回了一个代理对象，在返回代理对象的过程中加入了事务的支持，那么这个加入事务的过程就叫做 织入)-->
+        <property name="target" ref="bookServiceTarget"></property>
+    </bean>
+
+    <!--切面：就是切入点和通知的结合，切入点就是主业务逻辑接口中，在其实现类中被增强了的方法，(没被增强的方法被称为连接点)；通知指的就是提供了公共代码的类(交叉业务逻辑)中，那么这些交叉业务逻辑的代码什么时候去执行呢，就需要建立切入点方法和通知方法在执行调用时的对应关系，(这种结合形成的的对用关系)就是切面-->
+
+</beans>

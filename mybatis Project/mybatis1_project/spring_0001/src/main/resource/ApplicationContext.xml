@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--创建Controller对象-->
+    <bean id="uController" class="com.bjpowernode.controller.UsersController">
+        <property name="uService" ref="uService"></property>
+    </bean>
+
+    <bean id="uService" class="com.bjpowernode.service.impl.UsersServiceImpl">
+        <property name="udao" ref="udao"></property>
+    </bean>
+
+    <bean id="udao" class="com.bjpowernode.dao.impl.UsersDaoImpl"></bean>
+</beans>

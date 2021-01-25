@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/springMvc_test02" />
+    <file type="web" url="file://$PROJECT_DIR$/springMvc_test_canshu" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_test_static_resources" />
+    <file type="web" url="file://$PROJECT_DIR$/springMVC_test_tiaozhuan" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm_my_test" />
+    <file type="web" url="file://$PROJECT_DIR$/ssm_xiaomi" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/springMvc_test02/pom.xml" />
+        <option value="$PROJECT_DIR$/springMvc_test_canshu/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_test_tiaozhuan/pom.xml" />
+        <option value="$PROJECT_DIR$/springMVC_test_static_resources/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_my_test/pom.xml" />
+        <option value="$PROJECT_DIR$/ssm_xiaomi/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11.0.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

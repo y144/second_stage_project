@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.bjpowernode</groupId>
+  <artifactId>myweb01</artifactId>
+  <version>1.0</version>
+    
+
+    <!--jjjjjjjjjjjjjjjjjjjjjjj-->
+  <!--在这里指定字符集，JDK的版本-->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source><!--开发时的版本-->
+    <maven.compiler.target>11</maven.compiler.target><!--项目上线后的版本-->
+  </properties>
+
+
+  <dependencies><!--导入所需要的依赖-->
+    <!--这里指定junit单元测试依赖 -->
+    <dependency><!--单个的依赖 -->
+      <groupId>junit</groupId><!--组织名称-->
+      <artifactId>junit</artifactId><!--项目名称-->
+      <version>4.12</version><!--版本号-->
+      <scope>test</scope><!--依赖范围，在测试的时候才依赖的jar包，其他时候你不参-->
+    </dependency>
+
+    <!--mybatis依赖-->
+    <dependency><!--框架的依赖-->
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.1</version>
+      <!--不写出依赖范围表示使用默认依赖compile,表示在程序的各个生命周期中都要使用到这个jar包-->
+    </dependency>
+
+    <!--mysql驱动依赖-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.22</version>
+    </dependency>
+  </dependencies>
+
+  <!--在编译过程中，只执行.java文件的编译，将编译后的.class文件放入target目录的classes目录下，资源文件会被忽略，存在很大的不确定性，所以要添加资源文件的指定操作，确定每次编译时资源文件同时被处理。-->
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory><!--所在的目录-->
+        <includes><!--包括目录下的.properties,.xml 文件都会扫描到-->
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory><!--表示只要是主程序main下的，java包里的与resources包里的资源文件统统都做处理，顺利的打包到target目录下-->
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+  </build>
+
+</project>

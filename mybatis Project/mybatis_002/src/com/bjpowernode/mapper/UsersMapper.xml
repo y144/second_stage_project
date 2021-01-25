@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace:相当于是包名，用来进行当前所有sql语句的id区分，内容在简单的访问方式中是可以随便写的，但是在动态代理的方式中，就必须是接口的完全限定名称
+-->
+<mapper namespace="com.bjpowernode.mapper.UsersMapper">
+    <!--
+        select:此标签用来进行所有的查询的操作
+        id：是为这一套查询操作起个名字，被Session去调用， 来找到这条sql语句
+        parameterType:参数，从外部传入到查询语句的条件
+        resultType:返回值的类型
+        定位这条sql语句是通过包名.id名
+        com.bjpowernode.dao.impl.selectAll
+    -->
+    <!--定sql片段来指定所有列名-->
+    <sql id="allColumns">
+      id,username,birthday,sex,address
+    </sql>
+
+    <!--查询全部学生信息-->
+    <select id="findAll" resultType="com.bjpowernode.pojo.Users">
+      select id,username,birthday,sex,address from users
+    </select>
+
+    <!--按ID查询学生-->
+    <select id="findById" parameterType="int" resultType="com.bjpowernode.pojo.Users">
+        select id,username,birthday,sex,address from users where id=#{id}
+    </select>
+
+    <!--按姓名进行模糊查询-->
+    <select id="findByName" parameterType="string" resultType="users">/*这里就使用的是别名*/
+      select <include refid="allColumns"></include>
+      from users
+      where username like '%${value}%'
+    </select>
+
+    <!--按指定的列名进行查询-->
+    <select id="getByColumn" resultType="users">
+      select <include refid="allColumns"></include>
+      from users
+      /*这里就是一个纯字符串的替换,在方法被调用的时候，传入的参数将这里的查询条件进行替换，再将字符串拼接生成的sql语句中的占位符进行替换，形成一条完整的SQL语句*/
+      where ${columnName} like '%${columnValue}%'
+    </select>
+
+    <!--添加用户，#{}就是一个占位符 ，如果入参时候对象类型就必须在#{}里写对象中的成员变量的名称-->
+    <insert id="insert" parameterType="users">
+        /*该标签就是将插入后自增的主键信息  交给 传入的参数对象的指定属性* ， resultType:表示返回的主键的类型 keyProperty：表示用我当前传入的对象中的哪个属性去保存这个自增后的主键信息  ，order="AFTER"/BEFORE：表示在当前的插入语句之后/之前获得当前自增的主键/
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+            /*表示调用这个函数，用来返回当前最后一次操作的id的值*/
+            select LAST_INSERT_ID()
+        </selectKey>
+
+
+        insert into users(username, birthday, sex, address) values(#{userName},#{birthday},#{sex},#{address})
+    </insert>
+    <!--
+    <selectKey resultType="int" keyProperty="id" order="AFTER">
+            /*相当于一个随机数，是一个唯一的定位标识符（随机字符串）36位，*/
+            select UUID()
+        </selectKey>
+        -->
+    <!--根据对象的成员变量是否有值来决定是否添加条件-->
+    <select id="getByCondition" parameterType="users" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        <where>
+            <if test="userName != null">
+                and username like '%${userName}%'
+            </if>
+            <if test="birthday != null">
+                and birthday=#{birthday}
+            </if>
+            <if test="sex != null">
+                and sex=#{sex}
+            </if>
+            <if test="address != null">
+                and address like '%${address}%'
+            </if>
+        </where>
+    </select>
+
+    <!--普通更新-->
+    <update id="update" parameterType="users">
+        update users set username=#{userName},birthday=#{birthday},sex=#{sex},address=#{
+        address} where id=#{id}
+    </update>
+
+    <!--有条件更新，至少更新一个字段-->
+    <update id="updateCondition" parameterType="users">
+        update users
+        <set>
+            <if test="userName != null">
+                username=#{userName},
+            </if>
+            <if test="birthday != null">
+                 birthday=#{birthday},
+            </if>
+            <if test="sex != null">
+                sex=#{sex},
+            </if>
+            <if test="address != null">
+                address=#{address}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+
+    <!--遍历集合参数 《foreach》用于in运算（逻辑或）-->
+    <select id="findByUids" resultType="users">
+        select <include refid="allColumns"></include>
+        from users
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
+    <!--批量增加-->
+    <!--collection：只有两个值，一个是list,一个是array,如果入参是集合，则必须是list,如果入参是数组，则必是array
+    item:循环遍历出来的每个值（重庆市...）
+    separator：多个值之间的逗号分隔符
+    open:前括号
+    close:后括号 -->
+    <insert id="insertUsersBatch">
+        insert into users(username, birthday, sex, address) values
+        <foreach collection="list" item="u" separator=",">
+            (#{u.userName},#{u.birthday},#{u.sex},#{u.address})
+        </foreach>
+    </insert>
+
+    <!--批量删除-->
+    <delete id="deleteUsersBaych">
+        delete from users where id in 
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+
+
+</mapper>

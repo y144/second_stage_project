@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--导入dao核心配置文件-->
+    <import resource="classpath:applicationContext_dao.xml"></import>
+    <!--指定所有service的实现类的位置，让spring去创建这些对象-->
+    <context:component-scan base-package="com.bjpowernode.service"></context:component-scan>
+
+    <!--添加事务的管理器,myBatis使用datasource.DataSourceTransactionManager来进行事务的处理，
+        他会自动调用SqlSession.commit()和SqlSession.rollback(),
+        他会根据我们对事务的设定来来决定事务的提交和回滚，，
+        我们需要设定事务的传播特性(必须是要在一个事务中包含另一个事务的关系中验证)，设定数据库的隔离级别，设定异常回滚，设定非异常回滚，设定超时时间-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--添加事务的注解实现-->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+</beans>

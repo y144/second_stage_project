@@ -1,0 +1,9 @@
+添加mybatis框架的步骤：
+1）新建普通项目，在项目名称目录下，新建lib的目录
+2）添加jar包到lib目录下，并添加引用
+3）拷贝数据库配置的属性文件到src目录下，db.properties
+4）在src目录下新建SqlMapConfig.xml核心配置文件
+5）开发SqlMapConfig.xml文件
+6）新建实体类Student的成员变量--->与数据库中的表student表中的列对应
+7）在src目录下进行StudentDaoImpl.xml文件的开发，这里完成所有数据库的增删改查的操作
+8）添加JUnit单元测试插件，进行功能测试

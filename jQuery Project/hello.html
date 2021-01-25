@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			function fun1(){
+				var idSelect = $("#one")
+				alert(idSelect.text())
+				var dom = document.getElementById("one").innerHTML;
+				alert(dom);
+			}
+			
+			function fun2(){
+				var classSelect = $(".two")
+				alert(classSelect.text())
+				var dom = document.getElementsByClassName("two").innerHTML;
+				alert(dom);
+			}
+			function fun3(){
+				var divSelect = $("div")
+				for (var i = 0; i < divSelect.length; i++) {
+				alert(divSelect[i].innerHTML)
+				}
+			}
+		</script>
+		
+		<style type="text/css">
+			div{
+				background-color: gray;
+				width:200px;
+				height: 100px;
+				border: 3px solid orange;
+				margin-top: 10px;
+			}
+			</style>
+	</head>
+	<body>
+		<div id="one">我是id=one的di</div>
+		<div class="two">我是class=two的di</div>
+		<div>我是没有id没有class的di</div>
+		<br/>
+		<input type="button"value="选取id=one"onclick="fun1()"/>
+		<input type="button"value="选取class=two"onclick="fun2()"/>
+		<input type="button"value="选取全部div "onclick="fun3()"/>
+	</body>
+</html>

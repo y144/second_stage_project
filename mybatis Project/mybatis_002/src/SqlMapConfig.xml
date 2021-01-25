@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--xml文档的基本的版本号以及对应所使用的的字符集-->
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--以上是文档的约束说明，网址是从远程获取这个dtd文档约束说明-->
+<configuration>
+    <!--导入数据库的连接配置文件，在dataSource配置中读取值-->
+    <properties resource="db.properties"></properties>
+    <!--设置日志打印输出，输出sql语句-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--完成别名的注册-->
+    <typeAliases>
+        <!--单个别名的注册-->
+        <!--<typeAlias type="com.bjpowernode.pojo.Users" alias=""users></typeAlias>-->
+
+        <!--多个别名的注册，指定到实体类的包名即可，别名是实体类的类型名，且不区分大小写-->
+        <package name="com.bjpowernode.pojo"></package>
+    </typeAliases>
+
+    <!--
+        这里是进行数据库连接的环境设置
+        environments:可以配置多个环境变量（也就是数据源）{以下的每个environments  id=，都是一个数据源可以有多个}
+        default:在多个环境变量中设定当前使用的环境变量，就是在多个环境变量中表示选中的当前在使用的id环境变量
+    -->
+    <environments default="development">
+        <!--
+            environment:用来进行具体的环境变量的设置
+            id:为当前的设置起个名称，可以在上面的使用environments标签中调用此名称
+        -->
+        <environment id="development">
+            <!--
+                transactionManger:来进行MyBatis框架的事务处理设定
+                type:设置由谁管理事务
+                    JDBC:由框架来决定事务的提交和回滚，手动提交和回滚
+                    MANAGED:由容器统一管理事务的提交和回滚，在mybatis框架被spring整合后，事务的处理由spring容器管理
+            -->
+            <transactionManager type="JDBC"/>
+            <!--
+                dataSource：配置数据源
+                type:决定用不用数据库连接池对象
+                    POOLED:表示使用连接池
+                    UNPOOLED:表示不适用连接池
+                    JNDI:表示是服务器管理的连接池
+            -->
+            <dataSource type="POOLED">
+                <!--property的name属性不能修改乱写，因为他是UnpooledDataSource的成员变量，要使用这个name属性给成员变量注入值，去连接数据库-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--关联所有的干活的mapper.xml文件，需要让配置文件知道干活的文件在哪里，注册所有实现数据库操作的mapper文件,这是简单型就这样设置-->
+    <!--<mappers>
+
+        <mapper resource="StudentDaoImpl.xml"/>&lt;!&ndash;在根目录下直接注册就可，如果是放在其他的目录下就要写完整路径，com.bjpowernode.skd.StudentDaoImpl.xml这样&ndash;&gt;
+    </mappers>-->
+    <mappers>
+        <!--<mapper class="com.bjpowernode.mapper.UsersMapper"></mapper>-->
+
+        <!--单个简单访问的mapper文件的注册-->
+        <!--<mapper resource="StudentDaoImpl.xml"></mapper>-->
+        <!--单个动态代理的mapper文件的注册-->
+        <!--<mapper class="com.bjpowernode.mapper.UsersMapper"></mapper>-->
+        <!--批量mapper文件的注册-->
+        <package name="com.bjpowernode.mapper"></package>
+    </mappers>
+</configuration>

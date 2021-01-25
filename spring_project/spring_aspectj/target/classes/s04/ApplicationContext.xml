@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--将所有的对象交给spring来处理，必须要在spring的bean工厂中创建出此对象-->
+
+
+    <!--创建业务实现对象-->
+    <bean id="someService" class="com.bjpowernode.s04.SomeServiceImpl"></bean>
+
+    <!--创建切面对象-->
+    <bean id="advice" class="com.bjpowernode.s04.MyAspect"></bean>
+
+
+    <!--自动创建代理对象-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>

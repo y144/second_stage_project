@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bjpowernode.mapper.BookMapper">
+    <!--通过resultMap进行手工绑定，将列名和属性名进行绑定
+        id:是提供给调用者的名称，代表当前的映射结果集
+        type:是指定返回的数据类型(也就是当前映射结果集中的数据类型)，mabatis会根据这个数据类型进行数据解析
+    -->
+    <resultMap id="bookMap" type="book">
+        <!--主键的映射要用id标签，property:指定对象的属性名，column:指定表中的列名(字段名)-->
+        <id property="bookId" column="bookid"></id>
+        <!--非主键的映射要用result标签
+            property:指定对象的属性名，column:指定表中的列名(字段名)
+        -->
+        <result property="bookName" column="bookname"></result>
+    </resultMap>
+    <!--列名与属性名不一致起别名解决-->
+    <select id="findAll" resultType="book" >
+        select bookid bookId,bookname bookName from book
+    </select>
+
+    <!--通过resultMap来解决列名与成员变量名，个数，内容不一致的情况-->
+    <select id="findAllResultMap" resultMap="bookMap">
+        select bookid,bookname from book
+    </select>
+</mapper>

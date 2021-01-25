@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="calculatormaxmin" />
+        <module name="cjlibdymamic" />
+        <module name="jdkdymamic" />
+        <module name="mybatis_005" />
+        <module name="mybatis_buffer" />
+        <module name="myweb01" />
+        <module name="proxytest" />
+        <module name="spring_0001" />
+        <module name="spring_test" />
+        <module name="spring_test01" />
+        <module name="spring_test02" />
+        <module name="spring_test03" />
+        <module name="spring_testyilaizhuru01" />
+        <module name="static_proxy" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="calculatormaxmin" target="11" />
+      <module name="cjlibdymamic" target="11" />
+      <module name="jdkdymamic" target="11" />
+      <module name="mybatis_005" target="11" />
+      <module name="mybatis_buffer" target="11" />
+      <module name="myweb01" target="11" />
+      <module name="proxytest" target="11" />
+      <module name="spring0001" target="1.5" />
+      <module name="spring_0001" target="11" />
+      <module name="spring_test" target="1.8" />
+      <module name="spring_test01" target="11" />
+      <module name="spring_test02" target="11" />
+      <module name="spring_test03" target="11" />
+      <module name="spring_test04" target="1.5" />
+      <module name="spring_test05" target="1.8" />
+      <module name="spring_testyilaizhuru01" target="11" />
+      <module name="static_proxy" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

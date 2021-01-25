@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="bir">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/bir/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/bir/standard.jar!/" />
+      <root url="file://$PROJECT_DIR$/web/WEB-INF/bir" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/web/WEB-INF/bir" recursive="false" />
+  </library>
+</component>

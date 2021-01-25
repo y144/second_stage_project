@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bjpowernode.mapper.CustomerMapper">
+    <!--多对一的操作-->
+    <resultMap id="customerMap" type="customer">
+        <!--映射普通成员-->
+        <id property="id" column="cid"></id>
+        <result property="name" column="name"></result>
+        <result property="age" column="age"></result>
+
+        <!--映射orderList集合，解析所关联的数据-->
+        <collection property="orderList" ofType="orders">
+            <id property="id" column="oid"></id>
+            <result property="orderNumber" column="orderNumber"></result>
+            <result property="orderPrice" column="orderPrice"></result>
+        </collection>
+    </resultMap>
+
+    <select id="getById" resultMap="customerMap" parameterType="int">
+          select c.id cid,name,age,o.id oid,orderNumber,orderPrice
+          from customer c left join orders o on c.id=o.customer_id where c.id=#{id};
+    </select>
+</mapper>

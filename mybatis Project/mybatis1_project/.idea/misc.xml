@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/mybatis_buffer" />
+    <file type="web" url="file://$PROJECT_DIR$/myweb01" />
+    <type id="Spring" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/mybatis_005/pom.xml" />
+        <option value="$PROJECT_DIR$/myweb01/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis_buffer/pom.xml" />
+        <option value="$PROJECT_DIR$/static_proxy/pom.xml" />
+        <option value="$PROJECT_DIR$/proxytest/pom.xml" />
+        <option value="$PROJECT_DIR$/jdkdymamic/pom.xml" />
+        <option value="$PROJECT_DIR$/cjlibdymamic/pom.xml" />
+        <option value="$PROJECT_DIR$/calculatormaxmin/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_test/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_test01/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_test02/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_test03/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_testyilaizhuru01/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_0001/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/myweb01/mybatis_buffer/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11.0.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

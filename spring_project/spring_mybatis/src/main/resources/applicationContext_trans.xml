@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--导入service.xml文件，通过事务来控制这些主业务是提交和回滚-->
+    <import resource="classpath:applicationContext_service.xml"></import>
+
+    <!--声明事务的配置-->
+    <bean id="TransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--使用xml文件来声明事务-->
+    <!--配置切面的属性，哪些方法需要添加什么事务传播特性-->
+    <tx:advice id="txAdvice" transaction-manager="TransactionManager">
+        <tx:attributes>
+            <!--查询-->
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="select*" read-only="true"/>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="search*" read-only="true"/>
+            <!--增加-->
+            <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="save*" propagation="REQUIRED" no-rollback-for="ArithmeticException"/>
+            <tx:method name="insert*" propagation="REQUIRED" no-rollback-for="ArithmeticException"/>
+            <!--删除-->
+            <tx:method name="delete*" propagation="REQUIRED"/>
+            <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="clean*" propagation="REQUIRED"/>
+            <!--更新-->
+            <tx:method name="update*" propagation="REQUIRED"/>
+            <tx:method name="modify*" propagation="REQUIRED"/>
+            <tx:method name="set*" propagation="REQUIRED"/>
+            <tx:method name="change*" propagation="REQUIRED"/>
+            <!--表示除了这些命名开头的方法以外，其他的方法表示都支持事务-->
+            <tx:method name="*" propagation="SUPPORTS"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--使用AOP的技术进行切入点织入-->
+    <aop:config>
+        <!--切入点表达式：指定在哪个包下的哪个类中的哪些方法需要添加事务-->
+        <aop:pointcut id="pointcut" expression="execution(* com.bjpowernode.service.*.*(..))"></aop:pointcut>
+        <!--完成切面个切点的绑定-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"></aop:advisor>
+    </aop:config>
+</beans>

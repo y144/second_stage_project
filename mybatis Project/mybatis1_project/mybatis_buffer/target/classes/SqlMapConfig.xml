@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--导入数据库的连接配置文件，在dataSource配置中读取值-->
+    <properties resource="db.properties"></properties>
+
+    <!--设置日志打印输出，输出SQL语句-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!--添加二级缓存-->
+        <setting name="cacheEnabled" value="true"></setting>
+    </settings>
+    <!--完成别名的注册-->
+    <typeAliases>
+        <!--单个别名注册-->
+        <!--<typeAlias type="com.bjpowernode.pojo.Users" alias="users"></typeAlias>-->
+        <!--批量注册别名,指定到实体类的包名就行了，别名是实体类的类型名称（不分大小写） Users  users-->
+        <package name="com.bjpowernode.pojo"></package>
+    </typeAliases>
+   <!--
+       进行数据库连接的环境设置
+       environments：可以配置多个环境变量（数据源）
+       default: 在多个环境变量中设定当前使用的环境变量
+   -->
+    <environments default="development">
+       <!--
+          environment:用来进行具体环境变量设置
+          id: 为当前的设置起个名称，可以在environments标签中调用此名称
+       -->
+        <environment id="development">
+            <!--
+            transactionManager:来进行MyBatis框架的事务处理设定
+            type：设置由谁管理事务
+                  JDBC：由框架来决定事务的提交和回滚，手工提交和回滚
+                  MANAGED:由容器统一管理事务的提交和回滚，在mybatis框架被spring整合后，事务的处理由spring容器管理
+            -->
+            <transactionManager type="JDBC"/>
+            <!--
+              dataSource：配置数据源
+              type: 用不用数据库连接池开管理连接对象
+                   POOLED:使用连接池
+                   UNPOOLED:不用连接池
+                   JNDI:服务器端管理的连接池
+            -->
+            <dataSource type="POOLED">
+                <!--
+                  property的name属性不能乱写，因为它是UnpooledDataSource的成员变量
+                             使用这个name属性给成员变量注入值
+                -->
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <!--注册所有实现数据库操作的mapper文件-->
+    <mappers>
+        <!--单个简单访问的mapper文件的注册-->
+        <!--<mapper resource="StudentDaoImpl.xml"></mapper>-->
+        <!--单个动态代理的mapper文件的注册-->
+        <!--<mapper class="com.bjpowernode.mapper.UsersMapper"></mapper>-->
+        <!--批量mapper文件的注册-->
+        <package name="com.bjpowernode.mapper"></package>
+    </mappers>
+</configuration>

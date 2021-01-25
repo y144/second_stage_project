@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring_0001" />
+        <module name="spring_advice" />
+        <module name="spring_advice_type" />
+        <module name="spring_aop" />
+        <module name="spring_aspectj" />
+        <module name="spring_ioc_test" />
+        <module name="spring_mybatis" />
+        <module name="spring_test05" />
+        <module name="spring_test_aspectj" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="spring_0001" target="11" />
+      <module name="spring_advice" target="11" />
+      <module name="spring_advice_type" target="11" />
+      <module name="spring_aop" target="11" />
+      <module name="spring_aspectj" target="11" />
+      <module name="spring_ioc_test" target="11" />
+      <module name="spring_mybatis" target="11" />
+      <module name="spring_test03" target="11" />
+      <module name="spring_test05" target="11" />
+      <module name="spring_test_aspectj" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

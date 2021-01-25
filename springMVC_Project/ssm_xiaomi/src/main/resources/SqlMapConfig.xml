@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+   <!--mybatis的插件   进行分页插件的注册-->
+    <!--分页插件拦截插入的位置是执行器在调用statement语句的时间进行拦截，给这些语句施加分页操作，分页完成后再把结果返回出去-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+</configuration>

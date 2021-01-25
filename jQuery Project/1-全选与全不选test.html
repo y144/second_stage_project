@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js" ></script>
+		<script type="text/javascript">
+		$(function(){
+				
+				//设置全选功能,影响下面四个复选框
+				$("#all").click(function(){
+					//取出全选钮的状态
+					var isCheck = $("#all").prop("checked");
+					//给下面的四个复选框赋值
+					var cks = $("input[name='ck']");
+					for(var i=0;i<cks.length;i++){
+						//给下面的每个复选框赋上面全选钮的状态
+						//cks[i].checked = isCheck;
+						$(cks[i]).prop("checked",isCheck);
+					}
+				});
+				
+				$("input[name='ck']").click(function(){
+					//思路 :根据四个复选框的长度与选中长度的对比 ,决定全选钮的状态
+					//取出下面四个复
+					var zong = $("input[name='ck']").length;
+					var xuanZhong = $("input[name='ck']:checked").length;
+					if(zong == xuanZhong){
+						$("#all").prop("checked",true);
+					}else{
+						$("#all").prop("checked",false);
+					}
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+	<input type="checkbox" id="all" style="margin-left: 20px">&nbsp;&nbsp;全选<br><br>
+		<input type="checkbox" name="ck">A<br>
+		<input type="checkbox" name="ck">B<br>
+		<input type="checkbox" name="ck">C<br>
+		<input type="checkbox" name="ck">D<br>
+	</body>
+</html>

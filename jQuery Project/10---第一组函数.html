@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.4.1.js" ></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				/*$("#btn1").click(function(){
+					$(":text").val()
+					alert("我说第一个文本框的值")
+				})
+				$("#btn2").click(function(){
+					$(":text").val("王者")
+				})
+				$("#btn3").click(function(){
+					var dom = $("div").text()
+					alert(dom)				
+				})
+				$("#btn5").click(function(){
+					var first = $("div").text("总有人要赢的")
+					alert(first)
+				})
+				$("#btn4").click(function(){
+					var fop = $("div:first").text()
+					alert(fop)
+				})
+				$("#btn6").click(function(){
+					var goi = $("img").attr("src")
+					alert(goi)
+					$("img").attr("src","img/ex3.jpg")
+				})
+			})*/
+			$("#btn1").click(function(){
+				var fir = $(":text").val()
+				alert(fir)
+			})
+			$("#btn2").click(function(){
+				$(":text").val("假的就赶快")
+			})
+			$("#btn3").click(function(){
+				alert($("div").text())
+			})
+			$("#btn4").click(function(){
+				alert($("div:first").text())
+			})
+			$("#btn5").click(function(){
+				$("div").text("结果为ad加工的封建割据广阔的 ")
+			})
+			$("#btn6").click(function(){
+				$("img").attr("src","img/ex3.jpg")
+			})
+			$("#btn7").click(function(){
+				$("img:first").attr("src","img/ex2.jpg")
+			})
+			
+			})
+		</script>
+		
+
+	</head>
+	<body>
+
+		<p>文本框val</p>
+		<input type="text" value="text1"><br>
+		<input type="text" value="text2" disabled="disabled"><br>
+		<input type="text" value="text3"><br>
+		<input type="text" value="text4" disabled><br><br><br>
+
+		<p>文本内容text</p>
+		<div>我是第一个div</div>
+		<div>我是第二个div</div>
+		<div>我是第三个div</div><br><br>
+		<img id="img1" src="image/ex1.jpg" ><br>
+		<img id="img2" src="image/ex2.jpg"><br><br>
+		
+		<input type="button" id="btn1" value="获取第一个文本框的值val"><br />
+		<input type="button" id="btn2" value="设置所有文本框的值val"><br />
+		<input type="button" id="btn3" value="获取所有div的文本text"><br />
+		<input type="button" id="btn4" value="获取第一个div的文本text"><br />
+		<input type="button" id="btn5" value="设置div新文本text"><br />
+		<input type="button" id="btn6" value="显示img图片的src属性"><br />
+		<input type="button" id="btn7" value="设置img图片"><br />	
+
+	</body>
+</html>

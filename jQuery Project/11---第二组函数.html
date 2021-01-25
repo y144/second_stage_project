@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				
+				/*//隐藏所有div
+				$("#btn1").click(function(){
+					$("div").hide()
+				})
+				//显示所有div
+				$("#btn2").click(function(){
+					$("div").show()
+				})
+				//删除下拉列表中的选项
+				$("#btn3").click(function(){
+					$("select").empty()
+				})
+				//删除整个下拉列表
+				$("#btn4").click(function(){
+					$("select").remove()
+				})
+				//追加元素
+				$("#btn5").click(function(){
+					$("#father").append("<input type='text' value='我是动态的input'/>")
+				})
+				//显示span中的html
+				$("#btn6").click(function(){
+					var kli = $("span").html()
+					alert(kli)
+				})
+				//设置span中的html
+				$("#btn7").click(function(){
+					$("span").html("我是楼梯标签")
+				})
+				//each:对json和dom对象进行遍历
+				$("#btn8").click(function(){
+					$("span").each(function(i,n){
+						alert("索引"+i+"  "+n.innerHTML)
+					})
+				})*/
+				$("#btn1").click(function(){
+					$("div").hide()
+				})
+				$("#btn2").click(function(){
+					$("div").show()
+				})
+				$("#btn3").click(function(){
+					$("select").empty()
+				})
+				$("#btn4").click(function(){
+					$("select").remove()
+				})
+				//追加元素的过程中append()函数不识别html标签命令，也不会将标签命令当成文本读出来
+				$("#btn5").click(function(){
+					$("#father").append("更加的连接杆覅<p>gdf公交卡破打钩</p>")
+				})
+				$("#a6").click(function(){
+					var shf = $("span").html()
+					alert(shf)
+				})
+				$("#btn7").click(function(){
+					$("span").html("更健康发动机噶考虑到")
+				})
+				$("#btn8").click(function(){
+					var fie = {"name":"zhangsan","age":23,"address":"beijinpowernode"}
+					var skd = $("input")
+					$.each(fie, function(i,element) {
+						alert("第一个元素的下标是："+i+"  "+"第一个元素的值是："+element)
+					});
+					$.each(skd, function(i,elm) {
+						alert("第一个元素的下标是："+i+"  "+"第一个元素的值："+elm.value)
+					});
+				})
+				
+				
+			})
+			
+		</script>
+
+		
+
+	</head>
+	<body>
+		
+		<p>显示和隐藏div</p>
+		<div id="one">我是第一个one</div>
+		<div id="two">我是第二个two</div>
+		<br><br>
+		<p>remove和empty</p>
+		<select>
+			<option>狮子</option>
+			<option>豹子</option>
+			<option>虎子</option>
+		</select>
+		<select>
+			<option>清华</option>
+			<option>北大</option>
+			<option>人大</option>
+		</select>
+		<br><br>
+		<p>append追加元素</p>
+		<div id="father">我是父元素--> </div><br>
+
+		<p>html</p>
+		<span>mysql是一个<b>数据库</b></span><br />
+		<span>使用JDBC访问数据库</span><br><br>
+		
+		<input type="button" id="btn1" value="隐藏所有div"><br />
+		<input type="button" id="btn2" value="显示全部div"><br />
+		<input type="button" id="btn3" value="删除下拉列表中的选项"><br />
+		<input type="button" id="btn4" value="删除整个下拉列表"><br />
+		<input type="button" id="btn5" value="追加元素"><br />
+		<input type="button" id="btn6" value="显示span中的html"><br />
+		<input type="button" id="btn7" value="设置span中的html"><br />
+		<input type="button" id="btn8" value="each:对json和dom数组进行遍历"><br />
+	</body>
+</html>

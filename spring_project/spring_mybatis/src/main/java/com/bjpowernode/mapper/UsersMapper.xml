@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.bjpowernode.mapper.UsersMapper">
+    <!--此mapper文件中访问的实体类的对象会被放入缓存中-->
+
+    <insert id="insertUsers" parameterType="users">
+        insert into users(userid,uname,upass) values(#{userid},#{uname},#{upass})
+    </insert>
+</mapper>

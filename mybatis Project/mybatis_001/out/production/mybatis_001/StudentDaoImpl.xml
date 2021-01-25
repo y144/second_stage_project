@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+   namespace: 相当于是包名,用来进行当前所有SQL语句的id的区分
+               内容在简单的访问方式中是可以随便写的,但在动态代理的方式中,就必须是接口的完全限定名称
+-->
+<mapper namespace="com.bjpowernode.dao.impl"  >
+
+    <!--
+       select:此标签用来进行所有的查询操作
+       id: 为这一套查询操作起个名字,被SqlSession去调用,来找到这条SQL语句
+       parameterType:参数,从外部传入到查询语句中的条件
+       resultType:返回值类型,
+       定位这条SQL语句，通过包名.id名
+       com.bjpowernode.dao.impl.selectAll
+    -->
+    <!--查询全部学生信息-->
+    <select id="selectAll" resultType="com.bjpowernode.pojo.Student">
+        select id,name,email,age  from student
+    </select>
+
+    <!--查询指定ID的学生信息-->
+    <select id="getById" parameterType="int" resultType="com.bjpowernode.pojo.Student">
+        select id,name,email,age from student where id=#{id}
+    </select>
+
+    <!--按姓名模糊查询-->
+    <select id="getByName" parameterType="string" resultType="com.bjpowernode.pojo.Student">
+        select id,name,email,age from student where name like '%${value}%'
+    </select>
+
+    <!--增加学生信息-->
+    <insert id="insertStudent" parameterType="com.bjpowernode.pojo.Student" >
+        insert into student(name,email,age) values (#{name},#{email},#{age})
+    </insert>
+</mapper>
+
+<!--  此文件的功能相当于是过去的StudentDaoImpl实现类
+
+    package  com.bjpowernode.dao.impl;
+    public class StudentDaoImpl implements StudentDao{
+          public List<Student> getAll(){
+               ...........
+          }
+    }
+-->

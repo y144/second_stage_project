@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#all").click(function(){
+				var isCheck = $("#all").prop("checked")
+				var cke = $("input [name="hobby"]")
+				for(var i=0;i<cke.length;i++){
+				
+				}
+				
+				})
+			
+			})
+		</script>
+	</head>
+	<body>
+		<input type="checkbox" id="all" style="margin-left: 20px;"/>&nbsp;&nbsp;全选与全不选<br />
+		<input type="checkbox" name="hobby" value="song" />唱歌<br />
+		<input type="checkbox" name="hobby" value="bike"/>骑行<br />
+		<input type="checkbox" name="hobby" value="football"/>足球<br />
+		<input type="checkbox" name="hobby" value="music"/>音乐<br><input type="checkbox" name="hobby" />全选与全不选<br />
+		<input type="checkbox" name="hobby" value="song" />唱歌<br />
+		<input type="checkbox" name="hobby" value="bike"/>骑行<br />
+		<input type="checkbox" name="hobby" value="football"/>足球<br />
+		<input type="checkbox" name="hobby" value="music"/>音乐<br>
+	</body>
+</html>

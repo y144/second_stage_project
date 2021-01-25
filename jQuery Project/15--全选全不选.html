@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>	
+		<script type="text/javascript" src="js/jquery-3.4.1.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				//设置全选框影响下面的复选框
+				$("#all").click(function(){
+					//取出全选按钮的状态,给下面的四个复选框进行赋值
+					var isCheck = $("#all").prop("checked");
+					//根据标签中的属性定位，找到需要赋值的四个复选框  []代表属性定位
+					var cks = $("input[name ='ck']");
+					/*for(var i =0; i<cks.length;i++){
+						$(cks[i]).prop("checked",isCheck);
+					};*/
+					$.each(cks, function(i,element) {
+						 $(element).prop("checked",isCheck)
+					});
+				});
+				
+				$("input[name='ck']").click(function(){
+				 	var zong = $("input[name='ck']").length
+				 	var xuanzhogn  = $("input[name='ck']:checked").length
+				 	if(zong==xuanzhogn){
+				 			$("#all").prop("checked",true)
+				 	}else{
+				 			$("#all").prop("checked",false)
+				 	}
+				})
+			});
+			
+		</script>
+	</head>
+	<body>
+		<input type="checkbox" id="all" style="margin-left: 20px">&nbsp;&nbsp;全选<br><br>
+		<input type="checkbox" name="ck">A<br>
+		<input type="checkbox" name="ck">B<br>
+		<input type="checkbox" name="ck">C<br>
+		<input type="checkbox" name="ck">D<br>
+	</body>
+</html>

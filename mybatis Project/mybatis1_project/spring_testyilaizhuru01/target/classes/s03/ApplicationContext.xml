@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring容器通过类中的setter方法对属性进行注入赋值-->
+
+    <!--创建学校对象-->
+    <bean id="school" class="com.bjpowernode.pojo.s03.School">
+        <property name="name" value="北大"></property>
+        <property name="address" value="北京市大兴区"></property>
+    </bean>
+
+    <bean id="stu" class="com.bjpowernode.pojo.s03.Student">
+        <property name="name" value="张飒"></property>
+        <property name="age" value="12"></property>
+        <property name="school" ref="school"></property>
+        <!--注入没有对应成员变量的属性-->
+        <property name="email" value="lg;ag"></property>
+    </bean>
+
+    <!--创建系统类型的对象-->
+    <bean id="myDate" class="java.util.Date">
+        <property name="time" value="1231"></property>
+    </bean>
+</beans>

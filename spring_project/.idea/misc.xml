@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <type id="Spring" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/spring_test05/pom.xml" />
+        <option value="$PROJECT_DIR$/../mybatis Project/mybatis1/spring_test03/pom.xml" />
+        <option value="$PROJECT_DIR$/../mybatis Project/mybatis1_project/spring_0001/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_ioc_test/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_aop/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_advice/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_aspectj/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_test_aspectj/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_advice_type/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_mybatis/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Android</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11.0.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

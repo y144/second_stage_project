@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../mybatis Project/mybatis1_project/spring_0001/spring_0001.iml" filepath="$PROJECT_DIR$/../mybatis Project/mybatis1_project/spring_0001/spring_0001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_advice/spring_advice.iml" filepath="$PROJECT_DIR$/spring_advice/spring_advice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_advice_type/spring_advice_type.iml" filepath="$PROJECT_DIR$/spring_advice_type/spring_advice_type.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_aop/spring_aop.iml" filepath="$PROJECT_DIR$/spring_aop/spring_aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_aspectj/spring_aspectj.iml" filepath="$PROJECT_DIR$/spring_aspectj/spring_aspectj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ioc_test/spring_ioc_test.iml" filepath="$PROJECT_DIR$/spring_ioc_test/spring_ioc_test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" filepath="$PROJECT_DIR$/spring_mybatis/spring_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_test05/spring_test05.iml" filepath="$PROJECT_DIR$/spring_test05/spring_test05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_test_aspectj/spring_test_aspectj.iml" filepath="$PROJECT_DIR$/spring_test_aspectj/spring_test_aspectj.iml" />
+    </modules>
+  </component>
+</project>

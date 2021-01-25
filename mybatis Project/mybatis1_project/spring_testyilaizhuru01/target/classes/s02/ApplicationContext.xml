@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--spring容器通过类中的setter方法对属性进行注入赋值-->
+    <bean id="stu" class="com.bjpowernode.pojo.s02.Student">
+        <property name="age" value="12"></property>
+        <property name="name" value="积分都快来"></property>
+    </bean>
+
+</beans>

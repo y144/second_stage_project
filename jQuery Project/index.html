@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			function selectOne(){
+				//定位文本框
+				var one = document.getElementById("one")
+				//取出其中平的值
+				alert(one.value)
+				//优化js操作 使用jQuery
+				alert($("#one").val())
+			}
+			
+			function selectTwo(){
+				var two = document.getElementsByClassName("two")
+				alert(two[0].value)
+				//使用jQuery优化
+				alert($(".two")[1].value);
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" id="one" value="id选择" /><br/>
+		<input class="two" value="类选择"  /><br />
+		<input class="two" value="leixuanze" /><br />
+		<input type="button" value="操作one文本框" onclick="selectOne()" />
+		<input type="button" value="操作two文本框" onclick="selectTwo()" />
+		
+		<p>选择日期</p>
+		<input  type="date"/>
+		<p>邮箱</p>
+		<input type="email" />
+		<p>颜色</p>
+		<input type="color" />
+		
+	</body>
+	
+</html>

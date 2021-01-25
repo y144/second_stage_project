@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<!--<script type="text/javascript" src="js/jquery.js"></script>-->
+<script src="js/jquery-3.4.1.js"></script>
+<style type="text/css">
+	#div1{
+		background-color:red; width:200px; height:100px; display:none; 
+	}
+	
+</style>
+<script type="text/javascript">
+	$(function(){
+		/*$("#a1").on("click",function(){
+			$("#div1").show("normal")
+		})
+		$("#a2").on("click",function(){
+			$("#div1").toggle("normal")
+		})
+		$("#a3").on("click",function(){
+			$("#div1").slideUp("normal")
+		})
+		$("#a4").on("click",function(){
+			$("#div1").slideDown("normal")
+		})
+		$("#a5").on("click",function(){
+			$("#div1").slideToggle("normal")
+		})
+		$("#a6").on("click",function(){
+			$("#div1").fadeIn("noemal")
+		})
+		$("#a7").on("click",function(){
+			$("#div1").fadeOut("normal")
+		})*/
+		
+		
+		$("#a1").on("click",function(){
+			$("#div1").show(5000)	
+		})
+		$("#a2").on("click",function(){
+			$("#div1").toggle(8000)
+		})
+		$("#a3").on("click",function(){
+			$("#div1").slideUp(8000)
+		})
+		$("#a6").on("click",function(){
+			$("#div1").slideDown(8000)
+		})
+		$("#a7").on("click",function(){
+			$("#div1").fadeIn(8000)
+		})
+		$("#a6").on("click",function(){
+			$("#div1").fadeOut(8000)
+		})
+		
+		
+		
+		
+	})
+	
+</script>
+	
+
+
+
+</head>
+
+<body >
+	
+
+<div  id="div1" >这是将要显示和隐藏的div</div><br>
+
+
+
+<a id="a1" href="#D:\Java study\Java EE Second Stage\1-jQuery\课件\03-资源\img\ex1.jpg">中速显示(单向)</a>
+<BR />
+<a id="a2" href="#">中速显示(双向)</a>
+<P />
+<a id="a3" href="#">中速向上收起</a>
+<BR />
+<a id="a4" href="#">中速向下展开</a>
+<bR />
+<a id="a5" href="#">中速展开收起(双向)</a>
+<p />
+<a id="a6" href="#">中速淡入</a>
+<BR />
+<a id="a7" href="#">中速淡出</a>
+
+</div>
+</body>
+</html>

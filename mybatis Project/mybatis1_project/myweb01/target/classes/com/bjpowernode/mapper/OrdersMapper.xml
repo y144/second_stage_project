@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjpowernode.mapper.OrdersMapper">
+    <!--一对多的操作-->
+    <resultMap id="ordersMap" type="orders">
+        <id property="id" column="oid"></id>
+        <result property="orderNumber" column="orderNumber"></result>
+        <result property="orderPrice" column="orderPrice"></result>
+
+        <association property="customer" javaType="customer">
+            <id property="id" column="cid"></id>
+            <result property="name" column="name"></result>
+            <result property="age" column="age"></result>
+        </association>
+    </resultMap>
+    <!--写完语句在去更改主键-->
+    <select id="getById" resultMap="ordersMap" parameterType="int">
+      select o.id oid,orderNumber,orderPrice,c.id cid,name,age from orders o         inner join customer c on o.customer_id = c.id
+      where o.id=#{id}
+    </select>
+</mapper>

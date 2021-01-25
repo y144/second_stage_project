@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springMvc_test02" />
+        <module name="springMvc_test_canshu" />
+        <module name="springMVC_test_static_resources" />
+        <module name="springMVC_test_tiaozhuan" />
+        <module name="ssm_my_test" />
+        <module name="ssm_xiaomi" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="springMvc_test01" target="1.5" />
+      <module name="springMvc_test02" target="11" />
+      <module name="springMvc_test_canshu" target="11" />
+      <module name="springMVC_test_static_resources" target="11" />
+      <module name="springMVC_test_tiaozhuan" target="11" />
+      <module name="ssm_my_test" target="11" />
+      <module name="ssm_xiaomi" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
